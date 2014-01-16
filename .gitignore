@@ -1,0 +1,8 @@
+*.class
+.DS_Store
+Servers/*
+.metadata
+.settings
+.classpath
+.project
+target/

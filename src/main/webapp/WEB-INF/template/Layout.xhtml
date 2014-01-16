@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title><ui:insert name="titulo">Sistema Financeiro</ui:insert></title>
+	<h:outputStylesheet library="algaworks" name="estilo.css" />
+</h:head>
+
+<h:body>
+	<f:metadata>
+		<f:viewAction action="#{consultaLancamentosBean.consultar}" />
+	</f:metadata>
+
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="algaworks" name="loading.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<header>
+		<h:graphicImage library="algaworks" name="logo.png" />
+		
+		<div style="float: right; margin-right: 20px; margin-top: 8px">
+			Olá #{usuario.nome}!
+		</div>
+	</header>
+	
+	<h:form>
+		<p:menubar style="margin-top: -20px; margin-bottom: 20px">
+			<p:submenu label="Cadastros">
+				<p:menuitem value="Pessoa" />
+				<p:menuitem value="Lançamento" action="/CadastroLancamento?faces-redirect=true" />
+			</p:submenu>
+			<p:submenu label="Consultas">
+				<p:menuitem value="Pessoas" />
+				<p:menuitem value="Lançamentos" action="/ConsultaLancamentos?faces-redirect=true" />
+			</p:submenu>
+			<p:submenu label="Sistema">
+				<p:menuitem value="Sair" action="#{loginBean.logout}" />
+			</p:submenu>
+		</p:menubar>
+	</h:form>
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+	
+	<footer>
+		Sistema Financeiro - AlgaWorks
+	</footer>
+</h:body>
+
+</html>

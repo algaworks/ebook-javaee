@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.algaworks</groupId>
+  <artifactId>Financeiro</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <dependencies>
+		<!-- OmniFaces (utilitarios para JSF) -->
+		<dependency>
+		    <groupId>org.omnifaces</groupId>
+		    <artifactId>omnifaces</artifactId>
+		    <version>1.6</version>
+		    <scope>compile</scope>
+		</dependency>
+
+        <!-- PrimeFaces (biblioteca de componentes) -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>4.0</version>
+            <scope>compile</scope>
+        </dependency>
+    
+		<!-- Weld (implementação do CDI) -->
+		<dependency>
+		    <groupId>org.jboss.weld.servlet</groupId>
+		    <artifactId>weld-servlet</artifactId>
+		    <version>2.0.4.Final</version>
+		    <scope>compile</scope>
+		</dependency>
+    
+		<!-- Implementacao do Bean Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+			<scope>compile</scope>
+		</dependency>
+    
+		<!-- Núcleo do Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.6.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Implementação de EntityManager da JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.6.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Driver JDBC do MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+			<scope>compile</scope>
+		</dependency>
+    
+		<!-- Mojarra (implementacao do JSF) -->
+		<dependency>
+		    <groupId>org.glassfish</groupId>
+		    <artifactId>javax.faces</artifactId>
+		    <version>2.2.2</version>
+		    <scope>compile</scope>
+		</dependency>
+    
+		<dependency>
+	        <groupId>javax.servlet</groupId>
+	        <artifactId>javax.servlet-api</artifactId>
+	        <version>3.0.1</version>
+	        <scope>provided</scope>
+		</dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

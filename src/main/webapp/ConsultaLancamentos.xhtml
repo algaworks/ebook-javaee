@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>
+		<f:viewAction action="#{consultaLancamentosBean.consultar}" />
+	</f:metadata>
+
+    <ui:define name="titulo">Consulta de lançamentos</ui:define>
+    
+    <ui:define name="corpo">
+		
+		<h1>Consulta de lançamentos</h1>
+	
+		<h:form id="frm">
+			<p:messages showDetail="false" showSummary="true" autoUpdate="true" />
+		
+			<p:dataTable value="#{consultaLancamentosBean.lancamentos}" var="lancamento"
+					border="1" cellspacing="0" cellpadding="2"
+					paginator="true" rows="5" paginatorPosition="bottom">
+				<p:column headerText="Pessoa" sortBy="#{lancamento.pessoa.nome}">
+					<h:outputText value="#{lancamento.pessoa.nome}" />
+				</p:column>
+				<p:column headerText="Descrição" sortBy="#{lancamento.descricao}">
+					<h:outputText value="#{lancamento.descricao}" />
+				</p:column>
+				<p:column headerText="Tipo">
+					<h:outputText value="#{lancamento.tipo.descricao}" />
+				</p:column>
+				<p:column headerText="Valor" style="text-align: right" sortBy="#{lancamento.valor}">
+					<h:outputText value="#{lancamento.valor}">
+						<f:convertNumber type="currency" locale="pt_BR" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Vencimento" style="text-align: center" sortBy="#{lancamento.dataVencimento}">
+					<h:outputText value="#{lancamento.dataVencimento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Pagamento" style="text-align: center" sortBy="#{lancamento.dataPagamento}">
+					<h:outputText value="#{lancamento.dataPagamento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+					</h:outputText>
+				</p:column>
+				<p:column>
+					<p:button icon="ui-icon-pencil" title="Editar" outcome="/CadastroLancamento">
+						<f:param name="id" value="#{lancamento.id}" />
+					</p:button>
+					<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this" update="@form"
+							action="#{consultaLancamentosBean.excluir}">
+	    				<f:setPropertyActionListener value="#{lancamento}" 
+	    					target="#{consultaLancamentosBean.lancamentoSelecionado}" />
+	    			</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

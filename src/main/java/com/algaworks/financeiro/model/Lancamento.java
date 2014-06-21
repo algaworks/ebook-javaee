@@ -1,5 +1,6 @@
 package com.algaworks.financeiro.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,8 +24,10 @@ import com.algaworks.financeiro.validation.DecimalPositivo;
 
 @Entity
 @Table(name = "lancamento")
-public class Lancamento {
+public class Lancamento implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private Pessoa pessoa;
 	private String descricao;

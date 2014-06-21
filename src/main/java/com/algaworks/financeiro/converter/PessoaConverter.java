@@ -4,20 +4,16 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 
 import com.algaworks.financeiro.model.Pessoa;
 import com.algaworks.financeiro.repository.Pessoas;
-import com.algaworks.financeiro.util.CDILocator;
 
 @FacesConverter(forClass = Pessoa.class)
 public class PessoaConverter implements Converter {
 
-	// @Inject (ainda não é suportado)
+	@Inject // funciona graças ao OmniFaces
 	private Pessoas pessoas;
-	
-	public PessoaConverter() {
-		this.pessoas = CDILocator.getBean(Pessoas.class);
-	}
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

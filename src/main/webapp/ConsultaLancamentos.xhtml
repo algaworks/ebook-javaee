@@ -28,25 +28,28 @@
 				<p:column headerText="Descrição" sortBy="#{lancamento.descricao}">
 					<h:outputText value="#{lancamento.descricao}" />
 				</p:column>
-				<p:column headerText="Tipo">
+				<p:column headerText="Tipo" width="80">
 					<h:outputText value="#{lancamento.tipo.descricao}" />
 				</p:column>
-				<p:column headerText="Valor" style="text-align: right" sortBy="#{lancamento.valor}">
+				<p:column headerText="Valor" style="text-align: right" sortBy="#{lancamento.valor}"
+						width="100">
 					<h:outputText value="#{lancamento.valor}">
 						<f:convertNumber type="currency" locale="pt_BR" />
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Vencimento" style="text-align: center" sortBy="#{lancamento.dataVencimento}">
+				<p:column headerText="Vencimento" style="text-align: center" sortBy="#{lancamento.dataVencimento}"
+						width="100">
 					<h:outputText value="#{lancamento.dataVencimento}">
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Pagamento" style="text-align: center" sortBy="#{lancamento.dataPagamento}">
+				<p:column headerText="Pagamento" style="text-align: center" sortBy="#{lancamento.dataPagamento}"
+						width="100">
 					<h:outputText value="#{lancamento.dataPagamento}">
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
 					</h:outputText>
 				</p:column>
-				<p:column>
+				<p:column width="70" style="text-align: center">
 					<p:button icon="ui-icon-pencil" title="Editar" outcome="/CadastroLancamento">
 						<f:param name="id" value="#{lancamento.id}" />
 					</p:button>

@@ -19,7 +19,7 @@ public class LancamentosConverter implements Converter {
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Lancamento retorno = null;
 		
-		if (value != null) {
+		if (value != null && !"".equals(value)) {
 			retorno = this.lancamentos.porId(new Long(value));
 		}
 

@@ -19,7 +19,7 @@ public class PessoaConverter implements Converter {
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Pessoa retorno = null;
 		
-		if (value != null) {
+		if (value != null && !"".equals(value)) {
 			retorno = this.pessoas.porId(new Long(value));
 		}
 
